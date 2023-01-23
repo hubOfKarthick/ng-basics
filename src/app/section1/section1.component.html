@@ -1,0 +1,31 @@
+1. data binding
+{{title}}<br>
+<input type="text" [value]="title" (click)="inputText($event, 'event binding')"> <br>
+<input type="text" [(ngModel)]="title" (click)="inputText($event,  'two way')"><br>
+<br>
+2. Directives
+<p ngClass="text-primary" [ngStyle]="{'backgrund': 'red'}">Hi</p>
+
+<p *ngIf="true">NG IF</p>
+<span *ngFor="let item of [1,2,3]" class="card">{{item}}</span>
+<span ngSwitch="title">
+    <p *ngSwitchCase="'ng-basics'">{{title}}</p>
+    <p *ngSwitchDefault>Default title </p>
+</span>
+
+<p appCustomDirective>{{'HEY'}}</p>
+
+3. Pipes
+<div>
+    <p>
+        {{title | uppercase}}
+    </p>
+    <p>
+        {{'John'| customPipe: 'male'}}
+    </p>
+</div>
+4. Services
+<button (click)="triggerServiceCall()">Click</button>
+<pre>
+    {{studentData | json}}
+</pre>
