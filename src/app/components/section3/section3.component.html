@@ -1,0 +1,16 @@
+<button type="button" class="btn btn-primary" (click)="triggerService()">
+    Call Service
+</button>
+<br>
+My Service response:
+<br>
+<pre><code>{{serviceResponse | json}}</code></pre>
+
+<div *ngIf="isServiceLoaded" class="row flex-wrap">
+<div class="card text-left bg-primary w-25 m-2" *ngFor="let item of serviceResponse">
+    <div class="card-body">
+        <h4 class="card-title">{{item.name}}</h4>
+        <p class="card-text">{{item.email}}</p>
+    </div>
+</div>
+</div>

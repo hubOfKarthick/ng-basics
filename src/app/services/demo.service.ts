@@ -8,6 +8,9 @@ export class DemoService {
 
   constructor(private httpClient: HttpClient) { }
   getData() {
-    return this.httpClient.get('./assets/students.json');
+    return this.httpClient.get(
+      // './assets/students.json'
+      'https://jsonplaceholder.typicode.com/users'
+    );
   }
 }

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from './about/about.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HomeComponent } from './home/home.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { ProfileComponent } from './profile/profile.component';
+import { AboutComponent } from './components/about/about.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -34,17 +34,6 @@ const routes: Routes = [
     path: '**',
     component: NotFoundComponent
   }
-  // {
-  //   path: 'p',
-  //   component: PComponent,
-  //   // canActivateChild:[AuthGuard],
-  //   canActivate: [AuthGuard],
-  //   children: [
-  //     { path: 'c1', component: C1Component },
-  //     { path: 'c2', component: C2Component },
-  //     // {path:'',redirectTo:'c1',pathMatch:'full'}
-  //   ],
-  // },
 ];
 
 @NgModule({
