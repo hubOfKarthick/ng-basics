@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,11 +15,14 @@ import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { Section3Component } from './components/section3/section3.component';
+import { Section4Component } from './components/section4/section4.component';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { appReducers, appEffects } from './store';
 import { AppSandbox } from './sandbox/app.sandbox';
+import { HttpsInterceptor } from './http.interceptor';
+import { SignupComponent } from './components/signup/signup.component';
 
 
 @NgModule({
@@ -34,12 +37,15 @@ import { AppSandbox } from './sandbox/app.sandbox';
     AboutComponent,
     NotFoundComponent,
     ProfileComponent,
-    Section3Component
+    Section3Component,
+    Section4Component,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
 
 
@@ -47,7 +53,8 @@ import { AppSandbox } from './sandbox/app.sandbox';
     EffectsModule.forRoot(appEffects)
   ],
   providers: [
-    AppSandbox
+    AppSandbox,
+    {provide: HTTP_INTERCEPTORS, useClass: HttpsInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })
